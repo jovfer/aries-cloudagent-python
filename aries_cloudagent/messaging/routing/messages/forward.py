@@ -20,7 +20,7 @@ class Forward(AgentMessage):
         message_type = FORWARD
         schema_class = "ForwardSchema"
 
-    def __init__(self, *, to: str = None, msg: str = None, **kwargs):
+    def __init__(self, *, to: str = None, msg: dict = None, **kwargs):
         """
         Initialize forward message object.
 
@@ -42,4 +42,4 @@ class ForwardSchema(AgentMessageSchema):
         model_class = Forward
 
     to = fields.Str(required=True)
-    msg = fields.Str(required=True)
+    msg = fields.Dict(required=True)
